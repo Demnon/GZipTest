@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Diagnostics;
 using System.IO;
@@ -101,6 +98,7 @@ namespace GZipTest
             }
 
             Console.WriteLine("Сжатие файла завершено!");
+            Console.WriteLine("--------------------------------------");
         }
 
         // Выполнение распаковки
@@ -150,6 +148,7 @@ namespace GZipTest
             }
 
             Console.WriteLine("Распаковка архива завершена!");
+            Console.WriteLine("--------------------------------------");
         }
 
         // Чтение исходного файла для сжатия
@@ -195,6 +194,7 @@ namespace GZipTest
             catch (Exception ex)
             {
                 Console.WriteLine("Ошибка во время чтения! " + ex.Message);
+                Console.WriteLine("--------------------------------------");
             }
         }
 
@@ -236,6 +236,7 @@ namespace GZipTest
             catch (Exception ex)
             {
                 Console.WriteLine("Ошибка во время чтения! " + ex.Message);
+                Console.WriteLine("--------------------------------------");
             }
         }
 
@@ -274,6 +275,7 @@ namespace GZipTest
             catch (Exception ex)
             {
                 Console.WriteLine("Ошибка во время записи! " + ex.Message);
+                Console.WriteLine("--------------------------------------");
             }
         }
 
@@ -311,6 +313,7 @@ namespace GZipTest
             catch (Exception ex)
             {
                 Console.WriteLine("Ошибка во время записи! " + ex.Message);
+                Console.WriteLine("--------------------------------------");
             }
         }
 
@@ -352,6 +355,7 @@ namespace GZipTest
             catch (Exception ex)
             {
                 Console.WriteLine("Ошибка во время сжатия! " + ex.Message);
+                Console.WriteLine("--------------------------------------");
             }
         }
 
@@ -390,7 +394,8 @@ namespace GZipTest
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Ошибка во время сжатия! " + ex.Message);
+                Console.WriteLine("Ошибка во время распаковки! " + ex.Message);
+                Console.WriteLine("--------------------------------------");
             }
         }
 
