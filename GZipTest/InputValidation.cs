@@ -13,25 +13,25 @@ namespace GZipTest
         // Метод проверки входных данных
         public static void TestInputData(string[] s_InputData)
         {
-            Console.WriteLine("Verification input data...\n");
+            Console.WriteLine("Проверка исходных данных...");
 
             if (s_InputData.Length != 3)
             {
-                throw new Exception("Arguments must match the following pattern:" +
-                    " compress/decompress [Name source file] [Name resulting file].");
+                throw new Exception("Аргументы должны соответствовать следующему шаблону:" +
+                    " compress/decompress [Полный путь к исходному файлу] [Полный путь к результирующему файлу].");
             }
             if (s_InputData[0].ToLower() != "compress" && s_InputData[0].ToLower() != "decompress")
             {
-                throw new Exception("First argument should be compress/decompress.");
+                throw new Exception("Первый аргумент должен быть compress или decompress.");
             }
             if (s_InputData[1].Length == 0 || s_InputData[2].Length == 0)
             {
-                throw new Exception("Specify the names of the source and resulting files " +
-                    "as the second and third parameters.");
+                throw new Exception("Укажите имена исходного и результирующего файла " +
+                    "как второй и третий параметры.");
             }
             if (s_InputData[1] == s_InputData[2])
             {
-                throw new Exception("Source and resulting file must not match.");
+                throw new Exception("Исходный и конечный файлы не должны совпадать.");
             }
 
             FileInfo f_InputFile = new FileInfo(s_InputData[1]);
@@ -39,22 +39,22 @@ namespace GZipTest
 
             if (f_InputFile.Exists == false)
             {
-                throw new Exception("Source file with this name does not exist.");
+                throw new Exception("Исходный файл с таким полным путем не существует.");
             }
             if (f_InputFile.Extension == ".gz" && s_InputData[0].ToLower() == "compress")
             {
-                throw new Exception("Source file is already compressed.");
+                throw new Exception("Исходный файл уже сжат.");
             }
             if (s_InputData[0].ToLower() == "decompress" && f_InputFile.Extension != ".gz")
             {
-                throw new Exception("Source file must have extension '.gz'.");
+                throw new Exception("Исходный файл должен иметь расширение .gz.");
             }
             if (f_ResultingFile.Exists == true)
             {
-                throw new Exception("Resulting file already exists, specify a new file name.");
+                throw new Exception("Результирующий файл уже существует, укажите полный путь к новому файлу.");
             }
 
-            Console.WriteLine("Verification completed.\n");
+            Console.WriteLine("Проверка завершена.");
         }
     }
 }

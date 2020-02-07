@@ -14,9 +14,13 @@ namespace GZipTest
         {
             // Параметры для отладки
             args = new string[3];
-            args[0] = "compress";
-            args[1] = @"";
-            args[2] = @"";
+             args[0] = "compress";
+             args[1] = @"C:\\Users\\Odinc\\Desktop\\Родник.mp4";
+             args[2] = @"C:\\Users\\Odinc\\Desktop\\res.gz";
+
+            /*args[0] = "decompress";
+            args[1] = @"C:\\Users\\Odinc\\Desktop\\res.gz";
+            args[2] = @"C:\\Users\\Odinc\\Desktop\\Родник.mp4";*/
 
             try
             {
@@ -28,18 +32,18 @@ namespace GZipTest
                 // Выбор программы (compress или decompress
                 if (args[0].ToLower() == "compress")
                 {
-
+                    a_Archiver.RunningCompression();
                 }
                 else
                 {
-
+                    a_Archiver.RunningDecompression();
                 }
 
                 return 0;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error! " + ex.Message);
+                Console.WriteLine("Ошибка! " + ex.Message);
                 return 1;
             }
         }
