@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace GZipTest
@@ -31,14 +29,6 @@ namespace GZipTest
             get
             {
                 return q_Queue.Count;
-            }
-        }
-
-        public bool GetWaitingForEndOfQueue
-        {
-            get
-            {
-                return b_WaitingForEndOfQueue;
             }
         }
 
@@ -81,7 +71,7 @@ namespace GZipTest
         {
             lock (o_Locker)
             {
-                while (q_Queue.Count == 0 && b_WaitingForEndOfQueue == false)
+                while (q_Queue.Count == 0 && !b_WaitingForEndOfQueue)
                 {
                     Monitor.Wait(o_Locker);
                 }

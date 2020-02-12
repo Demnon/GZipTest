@@ -13,16 +13,16 @@ namespace GZipTest
                 // Проверка входных данных
                 InputValidation.TestInputData(args);
 
-                Archiver a_Archiver = new Archiver(args[1], args[2]);
+                ControlThreads c_ControlThreads = new ControlThreads(args[1], args[2]);
 
-                // Выбор программы (compress или decompress
+                // Запуск потоков на сжатие/распаковку файла
                 if (args[0].ToLower() == "compress")
                 {
-                    a_Archiver.RunningCompression();
+                    c_ControlThreads.RunningCompression();
                 }
                 else
                 {
-                    a_Archiver.RunningDecompression();
+                    c_ControlThreads.RunningDecompression();
                 }
 
                 return 0;

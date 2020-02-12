@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.IO;
 
 namespace GZipTest
@@ -37,7 +33,7 @@ namespace GZipTest
             FileInfo f_InputFile = new FileInfo(s_InputData[1]);
             FileInfo f_ResultingFile = new FileInfo(s_InputData[2]);
 
-            if (f_InputFile.Exists == false)
+            if (!f_InputFile.Exists)
             {
                 throw new Exception("Исходный файл с таким полным путем не существует.");
             }
@@ -49,7 +45,7 @@ namespace GZipTest
             {
                 throw new Exception("Исходный файл должен иметь расширение .gz.");
             }
-            if (f_ResultingFile.Exists == true)
+            if (f_ResultingFile.Exists)
             {
                 throw new Exception("Результирующий файл уже существует, укажите полный путь к новому файлу.");
             }
